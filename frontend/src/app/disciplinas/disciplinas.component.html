@@ -1,0 +1,19 @@
+<section class="content-header">
+  <h1 class="page-header">
+    Todas as disciplinas
+  </h1>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <button [routerLink]="['/caddisciplina']" class="btn btn-success">Incluir</button>
+    </div>
+  </div><br><br>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div *ngFor="let disciplina of disciplinas" class="col-sm-6 col-xs-12">
+      <app-disciplina [disciplina]="disciplina"></app-disciplina>
+    </div>
+  </div>
+</section>

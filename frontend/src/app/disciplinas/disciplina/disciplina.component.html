@@ -1,0 +1,15 @@
+<a [routerLink]="'/disciplinas'">
+  <div class="place-info-box">
+    <div class="place-info-box-content">
+      <span class="place-info-box-text">Nome: {{disciplina.nome}}</span><br>
+      <span class="place-info-box-text">Professor: {{disciplina.professor}}</span><br><br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+       <button type="button" (click)="removeDisciplina(disciplina)" class="btn btn-danger">Excluir</button>
+       <button type="button" (click)="carregaDisciplina(disciplina)" class="btn btn-primary">Atualizar</button>
+    </div>
+  </div>
+</a>
