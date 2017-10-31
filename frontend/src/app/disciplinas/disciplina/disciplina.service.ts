@@ -29,4 +29,8 @@ export class DisciplinaService {
   carregaDisciplina(disciplina: Disciplina): Observable<Disciplina> {
      return this.http.get(`${APP_API}/${disciplina.id}`).map(response => response.json()).catch(ErrorHandler.handleError);
   }
+
+  carregaDisciplinaById(id: number): Observable<Disciplina> {
+    return this.http.get(`${APP_API}/${id}`).map(response => response.json()).catch(ErrorHandler.handleError);
+  }
 }

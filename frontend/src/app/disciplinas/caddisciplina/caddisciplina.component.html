@@ -19,13 +19,13 @@
 
         <div class="col-sm-4 col-xs-12">
           <app-input errorMessage="Campo obrigatório com no mínimo 2 caracteres" label="Nome">
-            <input class="form-control" name="nome" ngModel required minlength="2" maxlength="255" placeholder="Nome" autocomplete="off">
+            <input class="form-control" name="nome" ngModel required minlength="2" maxlength="255" placeholder="Nome" autocomplete="off" [(ngModel)]="nome">
           </app-input>
         </div>
 
         <div class="col-sm-4 col-xs-12">
           <app-input errorMessage="Campo obrigatório com no mínimo 2 caracteres" label="Professor">
-            <input class="form-control" name="professor" ngModel required minlength="2" maxlength="255" placeholder="Professor" autocomplete="off">
+            <input class="form-control" name="professor" ngModel required minlength="2" maxlength="255" placeholder="Professor" autocomplete="off" [(ngModel)]="professor">
           </app-input>
         </div>
       </div>

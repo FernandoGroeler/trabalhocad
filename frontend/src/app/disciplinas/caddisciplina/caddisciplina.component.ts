@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { CadDisciplinaService } from './caddisciplina.service';
 import { CadDisciplina } from './caddisciplina.model';
+import { DisciplinaService } from '../disciplina/disciplina.service';
+import { Disciplina } from '../disciplina/disciplina.model';
 
 @Component({
   selector: 'app-caddisciplina',
@@ -10,8 +12,11 @@ import { CadDisciplina } from './caddisciplina.model';
 })
 export class CaddisciplinaComponent implements OnInit {
   public id: number = 0;
+  public nome: string;
+  public professor: string;
+  public disciplina: Disciplina;
 
-  constructor(private caddisciplinaservice: CadDisciplinaService, private router: Router, private activedRouter: ActivatedRoute) { }
+  constructor(private caddisciplinaservice: CadDisciplinaService, private router: Router, private activedRouter: ActivatedRoute, private disciplinaService: DisciplinaService) { }
 
   ngOnInit() {
     this.activedRouter.params.subscribe((params) => {
@@ -19,6 +24,12 @@ export class CaddisciplinaComponent implements OnInit {
 
       if (par != null) {
         this.id = Number.parseInt(par);
+        this.disciplinaService.carregaDisciplinaById(this.id).subscribe(res => {
+          this.disciplina = res[0];
+          this.nome = this.disciplina.nome;
+          this.professor = this.disciplina.professor;
+          console.log(this.nome);
+        })
       } else {
         this.id = 0;
       }
